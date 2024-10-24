@@ -1,0 +1,39 @@
+.slg{
+    padding-left: 80px;
+padding-top: 20px;
+    color: white;
+    background-color:#48afff ;
+    padding-bottom: 30px;
+    width: 100.9%;
+    
+
+    
+}
+
+.er{
+    padding-top: 20px;
+    font-size: 11px;
+}
+
+
+#payment-icon{
+    padding-top: 20px;
+}
+
+
+.footer-primary-info{
+    background-color: #3eabff;
+    /* display: flex;
+    flex-wrap: wrap; */
+    width: 100.9%;
+    font-size: 13px;
+    
+    padding-top: 20px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#footer-social{
+    font-size: 13px;
+
+}
