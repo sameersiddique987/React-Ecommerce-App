@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import Image from '../component/image'
+import Image from '../component/Image'
 import Footer from '../component/Footer'
 function Contact() {
   return (
