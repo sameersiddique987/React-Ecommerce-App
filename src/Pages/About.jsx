@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Image from '../component/Image' 
+import Image from '../component/image' 
 import Footer from '../component/Footer'
 
 function About() {

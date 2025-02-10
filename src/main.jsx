@@ -1,13 +1,15 @@
-
 import { createRoot } from 'react-dom/client'
-
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Product from './Pages/Product.jsx'
 import Home from './Pages/Home.jsx'
 import About from './Pages/About.jsx'
 import Contact from './Pages/Contact.jsx'
 import SingleUser from './Pages/SingleUser.jsx'
 import Layout from './Layout.jsx'
+import Success from './Pages/Success.jsx'
+import Cancel from './Pages/Cancel.jsx'
+import AddToCart from './Pages/addToCart.jsx'
 
 const router = createBrowserRouter([
 {
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
   element:<Layout />,
   children:[
     {
-      path:"",
+      path:"/",
       element:<Home />
     },
     {
@@ -26,10 +28,25 @@ const router = createBrowserRouter([
       path:"Contact",
       element:<Contact />
     },
-    
+    {
+      path:"product",
+      element:<Product />
+    },
+    {
+      path:"AddToCart",
+      element:<AddToCart />
+    },
     {
       path:"SingleUser/:id",
       element:<SingleUser />
+    },
+    {
+      path: "success",
+      element: <Success />,
+    },
+    {
+      path: "cancel",
+      element: <Cancel/>,
     },
    
     {
@@ -39,15 +56,8 @@ const router = createBrowserRouter([
   ]
 }
 ])
-  
-
-  
-
-
 createRoot(document.getElementById('root')).render(
   <RouterProvider router={router}>
 
-  </RouterProvider>
-    
-  
+  </RouterProvider>  
 )

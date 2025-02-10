@@ -8,8 +8,8 @@ export default function MediaCard(props) {
     <div className=" mt-5 flex justify-center">
       <Card
         sx={{
-          width: 350, 
-          height: 450, 
+          width: 350, // Increased width
+          height: 450, // Increased height
           transition: 'transform 0.3s ease, box-shadow 0.3s ease',
           '&:hover': {
             transform: 'translateY(-5px)',
@@ -20,8 +20,8 @@ export default function MediaCard(props) {
         <CardMedia
           component="img"
           sx={{
-            height: 250, 
-            objectFit: 'cover', 
+            height: 250, // Adjusted height for the image
+            objectFit: 'cover', // Maintain aspect ratio
           }}
           image={props.image}
           title="Image Title"

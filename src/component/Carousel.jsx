@@ -1,23 +1,21 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { Paper } from "@mui/material";
-
 function ImageCarousel() {
-    const images = [
-        {
-            src: "https://soliloquywp.com/wp-content/uploads/2016/09/How-to-Add-a-Homepage-Slider-in-WordPress.png",
-            alt: "First Image"
-        },
-        {
-            src: "https://wpnewsify.com/wp-content/uploads/2017/09/Logo-Slider-794x398.jpg",
-            alt: "Second Image"
-        },
-        {
-            src: "https://landofcoder.b-cdn.net/wp-content/uploads/2020/08/magento-2-image-slider-1-2.jpg",
-            alt: "Third Image"
-        }
-    ];
-
+const images = [
+    {
+        src: "https://pixosoft.com/images/sliders/pixosoft-slider-3.jpg",  
+        alt: "First Image"
+    },
+    {
+        src: "https://helloyubo.com/wp-content/uploads/2022/10/creative_fashion-2-1024x372.jpg",
+        alt: "Second Image"
+    },
+    {
+        src: "https://cdn.sanity.io/images/cbjxg0yl/production_v2/207796ae5c4b77588415a94bdaf3c8c29ea92bd3-2480x761.jpg",
+        alt: "Third Image"
+    }
+];
     return (
         <Carousel
             autoPlay={true}
