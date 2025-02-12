@@ -1,7 +1,7 @@
-
 import React from 'react'
-import Image from '../component/image' 
-import Footer from '../component/Footer'
+ import Footer from '../component/Footer'
+import Image from '../component/Image'
+
 
 function About() {
   return (
