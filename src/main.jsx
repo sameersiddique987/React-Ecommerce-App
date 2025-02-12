@@ -9,7 +9,7 @@ import SingleUser from './Pages/SingleUser.jsx'
 import Layout from './Layout.jsx'
 import Success from './Pages/Success.jsx'
 import Cancel from './Pages/Cancel.jsx'
-import AddToCart from './Pages/addToCart.jsx'
+import AddToCart from './Pages/AddToCart.jsx'
 
 const router = createBrowserRouter([
 {
