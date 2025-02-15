@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CancelPage = () => {
+const Cancel = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,4 +20,4 @@ const CancelPage = () => {
   return 
 };
 
-export default CancelPage;
+export default Cancel;

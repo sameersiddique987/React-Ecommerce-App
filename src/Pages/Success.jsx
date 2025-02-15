@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const SuccessPage = () => {
+const Success = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,4 +22,4 @@ const SuccessPage = () => {
   return ;   
 };
 
-export default SuccessPage;
+export default Success;

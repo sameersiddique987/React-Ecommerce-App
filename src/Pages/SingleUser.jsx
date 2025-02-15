@@ -103,7 +103,7 @@ function SingleUser() {
     const stripe = await loadStripe("pk_test_51QarspP9DXcr8WfKlzEFIRiy58vELHNKXtMmd2Il0dyfRiG1ftHz7f6Kwjl1ecwLs8evwTntGprfHFTZkXOzfYzq00ujS5MHYl");
   
     try {
-      // 🛒 Get Product Data from Cart
+    
       const productToCheckout = {
         id: data.id,
         category: data.category,
@@ -112,15 +112,15 @@ function SingleUser() {
         quantity: cartItems.find(item => item.id === data.id)?.quantity || 1,
       };
   
-      // ✅ Send POST Request to Backend
+      
       const response = await axios({
         method: "post",
         url: "https://payment-integration-3dhj.vercel.app/api/v1/checkout",
         data: { products: [productToCheckout] },
-        withCredentials: false, // Change to true only if using authentication
+        withCredentials: false, 
       });
   
-      // ✅ Handle Stripe Checkout Redirection
+      
       if (response.data?.id) {
         const result = await stripe.redirectToCheckout({ sessionId: response.data.id });
         if (result?.error) console.error("Stripe Error:", result.error.message);
