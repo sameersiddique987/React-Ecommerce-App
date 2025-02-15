@@ -92,16 +92,18 @@ function SingleUser() {
     });
   };
 
-  
+
+
   const payNow = async () => {
     if (!data) {
       console.error("No product selected!");
       return;
     }
-
+  
     const stripe = await loadStripe("pk_test_51QarspP9DXcr8WfKlzEFIRiy58vELHNKXtMmd2Il0dyfRiG1ftHz7f6Kwjl1ecwLs8evwTntGprfHFTZkXOzfYzq00ujS5MHYl");
-
+  
     try {
+      // 🛒 Get Product Data from Cart
       const productToCheckout = {
         id: data.id,
         category: data.category,
@@ -109,18 +111,28 @@ function SingleUser() {
         price: data.price * (cartItems.find(item => item.id === data.id)?.quantity || 1),
         quantity: cartItems.find(item => item.id === data.id)?.quantity || 1,
       };
-
-      const response = await axios.post('http://localhost:3000/api/v1/checkout', {
-        products: [productToCheckout],
+  
+      // ✅ Send POST Request to Backend
+      const response = await axios({
+        method: "post",
+        url: "https://payment-integration-blond.vercel.app/api/v1/checkout",
+        data: { products: [productToCheckout] },
+        withCredentials: false, // Change to true only if using authentication
       });
-
-      const result = await stripe.redirectToCheckout({ sessionId: response.data.id });
-      if (result.error) console.error(result.error.message);
+  
+      // ✅ Handle Stripe Checkout Redirection
+      if (response.data?.id) {
+        const result = await stripe.redirectToCheckout({ sessionId: response.data.id });
+        if (result?.error) console.error("Stripe Error:", result.error.message);
+      } else {
+        console.error("Stripe session ID not received!");
+      }
     } catch (err) {
       console.error("Payment Error:", err);
     }
   };
-
+  
+  
   return (
     <>
       <div className="px-10 flex flex-wrap justify-center gap-3">
