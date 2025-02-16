@@ -1,11 +1,9 @@
-
-import React from "react";
+import React from 'react'
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
-const Success = () => {
-  const navigate = useNavigate();
+function Success() {
+    const navigate = useNavigate();
 
   useEffect(() => {
     Swal.fire({
@@ -18,8 +16,9 @@ const Success = () => {
       navigate("/"); 
     });
   }, []);
+  return (
+    <div></div>
+  )
+}
 
-  return ;   
-};
-
-export default Success;
+export default Success

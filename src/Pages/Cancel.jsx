@@ -1,9 +1,9 @@
+import React from 'react'
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
-const Cancel = () => {
-  const navigate = useNavigate();
+function Cancel() {
+    const navigate = useNavigate();
 
   useEffect(() => {
     Swal.fire({
@@ -16,8 +16,9 @@ const Cancel = () => {
       navigate("/"); 
     });
   }, []);
+  return (
+    <div></div>
+  )
+}
 
-  return 
-};
-
-export default Cancel;
+export default Cancel

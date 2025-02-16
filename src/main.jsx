@@ -7,9 +7,9 @@ import About from './Pages/About.jsx'
 import Contact from './Pages/Contact.jsx'
 import SingleUser from './Pages/SingleUser.jsx'
 import Layout from './Layout.jsx'
+import AddToCart from './Pages/AddToCart.jsx'
 import Success from './Pages/Success.jsx'
 import Cancel from './Pages/Cancel.jsx'
-import AddToCart from './Pages/AddToCart.jsx'
 
 const router = createBrowserRouter([
 {
@@ -37,18 +37,18 @@ const router = createBrowserRouter([
       element:<AddToCart />
     },
     {
+      path:"success",
+      element:<Success />
+    },
+    {
+      path:"cancel",
+      element:<Cancel />
+    },
+    {
       path:"SingleUser/:id",
       element:<SingleUser />
     },
-    {
-      path: "Success",
-      element: <Success/>,
-    },
-    {
-      path: "Cancel",
-      element: <Cancel/>,
-    },
-   
+  
     {
       path:"*",
       element: <h1>NOT FOUND</h1>
