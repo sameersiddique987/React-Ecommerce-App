@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import Badge, { badgeClasses } from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
@@ -15,6 +16,7 @@ const CartBadge = styled(Badge)`
 
 export default function CartIconButton() {
   const [cartCount, setCartCount] = useState(0);
+  const isMobile = useMediaQuery("(max-width:600px)"); 
 
   const updateCartCount = () => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -24,19 +26,16 @@ export default function CartIconButton() {
 
   useEffect(() => {
     updateCartCount();
-
-    // ✅ Cart Updated Event کو سننے کے لیے Event Listener ایڈ کریں
     window.addEventListener("cartUpdated", updateCartCount);
-
     return () => {
       window.removeEventListener("cartUpdated", updateCartCount);
     };
   }, []);
 
   return (
-    <IconButton>
+    <IconButton sx={{ color: isMobile ? "black" : "white" }}> 
       <CartBadge badgeContent={cartCount} overlap="circular">
-        <ShoppingCartIcon fontSize="small" sx={{ color: "white" }} />
+        <ShoppingCartIcon sx={{ color: "inherit" }} />
       </CartBadge>
     </IconButton>
   );

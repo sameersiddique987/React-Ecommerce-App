@@ -11,8 +11,9 @@ import Container from '@mui/material/Container';
 import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
 import CartIconButton from './CartIconButton';
- import StorefrontIcon from '@mui/icons-material/Storefront'; 
-const pages = ['Home',  'About', 'Contact'];
+import StorefrontIcon from '@mui/icons-material/Storefront';
+
+const pages = ['Home', 'About', 'Contact'];
 
 function ResponsiveAppBar() {
   const navigate = useNavigate();
@@ -29,65 +30,79 @@ function ResponsiveAppBar() {
   return (
     <AppBar position="static" sx={{ backgroundColor: "#1976d2" }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          
-          <StorefrontIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontSize: 32 }} /> 
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'Poppins, sans-serif',
-              fontWeight: 700,
-              letterSpacing: '.2rem',
-              color: 'white',
-              textDecoration: 'none',
-            }}
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+
+          {/* Mobile Menu Icon (Left Side) */}
+          <IconButton
+            size="large"
+            aria-label="open menu"
+            onClick={handleOpenNavMenu}
+            color="inherit"
+            sx={{ display: { xs: 'flex', md: 'none' } }}
           >
-            E-Shop
-          </Typography>
+            <MenuIcon />
+          </IconButton>
+<Box 
+  sx={{ 
+    flexGrow: 1, 
+    display: "flex", 
+    justifyContent: { xs: "center", md: "flex-start" },  
+    alignItems: "center"
+  }}
+>
+  <StorefrontIcon sx={{ fontSize: 32, mr: 1 }} />
+  <Typography
+    variant="h6"
+    noWrap
+    component="a"
+    href="/"
+    sx={{
+      fontFamily: 'Poppins, sans-serif',
+      fontWeight: 700,
+      letterSpacing: '.2rem',
+      color: 'white',
+      textDecoration: 'none',
+    }}
+  >
+    E-Shop
+  </Typography>
+</Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="open menu"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              anchorEl={anchorElNav}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={() => { handleCloseNavMenu(); navigate(`/${page.toLowerCase()}`); }}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
+        
+          {/* Desktop Menu (Right Side) */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1, justifyContent: "flex-end" }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={() => navigate(page === 'Home' ? '/' : `/${page.toLowerCase()}`)}
+                onClick={() => navigate(`/${page === 'Home' ? '' : page.toLowerCase()}`)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
               </Button>
             ))}
-            
             <IconButton onClick={() => navigate('/AddToCart')} color="inherit">
               <CartIconButton />
             </IconButton>
           </Box>
+
+          {/* Mobile Menu Dropdown */}
+          <Menu
+            anchorEl={anchorElNav}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+            sx={{ display: { xs: 'block', md: 'none' } }}
+          >
+            {pages.map((page) => (
+              <MenuItem key={page} onClick={() => { handleCloseNavMenu(); navigate(`/${page === 'Home' ? '' : page.toLowerCase()}`); }}>
+                <Typography textAlign="center">{page}</Typography>
+              </MenuItem>
+            ))}
+            <MenuItem onClick={() => { handleCloseNavMenu(); navigate('/AddToCart'); }}>
+              <CartIconButton />
+            </MenuItem>
+          </Menu>
+
         </Toolbar>
       </Container>
     </AppBar>
