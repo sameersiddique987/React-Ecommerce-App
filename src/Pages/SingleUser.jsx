@@ -115,7 +115,7 @@ function SingleUser() {
       
       const response = await axios({
         method: "post",
-        url: "https://payment-integration-3dhj.vercel.app/api/v1/checkout",
+        url: "https://payment-integration-58rt.vercel.app/api/v1/checkout",
         data: { products: [productToCheckout] },
         withCredentials: false, 
       });
