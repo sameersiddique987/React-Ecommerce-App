@@ -41,11 +41,11 @@ const router = createBrowserRouter([
       element:<SingleUser />
     },
     {
-      path: "success",
+      path: "Success",
       element: <Success/>,
     },
     {
-      path: "cancel",
+      path: "Cancel",
       element: <Cancel/>,
     },
    
