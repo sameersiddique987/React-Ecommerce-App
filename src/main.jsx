@@ -10,6 +10,9 @@ import Layout from './Layout.jsx'
 import AddToCart from './Pages/AddToCart.jsx'
 import Success from './Pages/Success.jsx'
 import Cancel from './Pages/Cancel.jsx'
+import Login from './Pages/Login.jsx'
+import SignUp from './Pages/SignUp.jsx'
+import ProtectedRoutes from './component/ProtectedRoutes.jsx'
 
 const router = createBrowserRouter([
 {
@@ -19,6 +22,14 @@ const router = createBrowserRouter([
     {
       path:"/",
       element:<Home />
+    },
+    {
+      path:"Login",
+      element:<Login />
+    },
+    {
+      path:"SignUp",
+      element:<SignUp />
     },
     {
       path:"About",
@@ -34,7 +45,8 @@ const router = createBrowserRouter([
     },
     {
       path:"AddToCart",
-      element:<AddToCart />
+      element: <ProtectedRoutes component={<AddToCart/>}/>
+      
     },
     {
       path:"success",
@@ -58,6 +70,5 @@ const router = createBrowserRouter([
 ])
 createRoot(document.getElementById('root')).render(
   <RouterProvider router={router}>
-
   </RouterProvider>  
 )

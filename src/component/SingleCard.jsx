@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from './Button/Button';
 import AddtocardButton from './Button/Addtocard';
-
 function SingleCard({ src, category, description, price, quantity, increaseQuantity, decreaseQuantity, payNow, addCard }) {
   return (
     <div className="m-5 sm:m-10 flex justify-center">
