@@ -3,6 +3,7 @@ import ImageCarousel from '../component/Carousel';
 import MediaCard from '../component/Card';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../component/Footer';
+import { motion } from "framer-motion";
 
 function Home() {
   const [data, setData] = useState([]);
@@ -64,7 +65,9 @@ function Home() {
                 onClick={() => singleUser(item)}
               />
 
-              {/* ✅ آدھے پروڈکٹس کے بعد تصویر */}
+
+     
+
               {index === Math.floor(filteredData.length / 4) && (
                 <div className="w-full flex justify-center my-5">
                   <img
